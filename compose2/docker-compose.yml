@@ -6,3 +6,36 @@ services:
   - "8080:8080"
   volumes:
   - "/mnt/wars:/usr/local/tomcat/webapps"
+
+
+#######################try this one as well############
+services:
+  s1:
+    image: "httpd"
+    ports:
+      - "80-84:80"
+    volumes:
+      - "/mnt:/usr/local/apache2/htdocs"
+
+
+  s2:
+    image: "httpd"
+    ports:
+      - "90-94:80"
+    volumes:
+      - "/mnt/test:/usr/local/apache2/htdocs"
+
+  t1:
+    image: "tomcat:9"
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/mnt/wars:/usr/local/tomcat/webapps"
+
+
+  t2:
+    image: "tomcat:10"
+    ports:
+      - "8090:8080"
+    volumes:
+      - "/mnt/wars:/usr/local/tomcat/webapps"
